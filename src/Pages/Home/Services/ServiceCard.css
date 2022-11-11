@@ -1,0 +1,26 @@
+.bg-color{
+    background-color: #E9F1E3;
+}
+.card-btn{
+    width: 350px;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 20px 50px;
+    background: #59bd45;
+    color: #E9F1E3;
+    border-radius: 10px;
+}
+
+.div_img{
+    width: 100%;
+    height: 300px;
+}
+
+.bigimg{
+    transition: 0.4s;
+}
+
+.card-compact :hover .bigimg{
+    transform: scale(1.2);
+    cursor: pointer;
+}
