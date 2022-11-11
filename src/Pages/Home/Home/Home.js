@@ -27,7 +27,7 @@ const Home = () => {
             <Banner></Banner>
             <div>
             <div className='text-center mb-4'>
-                <h2 className="text-5xl py-5 font-semibold">Our Service</h2>
+                <h2 className="text-5xl py-5 font-semibold">My Service</h2>
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
@@ -45,7 +45,7 @@ const Home = () => {
                 <div className="hero-content lg:h-96 flex-col lg:flex-row">
                     <img src={d} alt="img" className=" h-80 rounded-lg shadow-2xl" />
                     <div className='lg:ml-10'>
-                    <h1 className="text-5xl font-bold">Food from your <br /> favorite Shopkeeper <br /> to your table</h1>
+                    <h1 className="text-5xl font-bold">today from your <br /> favorite Shopkeeper <br /> to your table</h1>
                     <p className="py-6">Find the perfect food, shopkeeper stock photo, image, vector, illustration or 360 image. Available for both RF and RM licensingFind the perfect food, shopkeeper stock photo, image, vector, illustration or 360 image. Available for both RF and RM licensing</p>
                     <button className="btn btn-outline btn-warning">ORDER NOW</button>
                     </div>
