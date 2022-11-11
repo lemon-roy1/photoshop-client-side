@@ -43,14 +43,14 @@ const router = createBrowserRouter([
         },
         {
           path: '/update/:id',
-          loader: ({params})=> fetch(`https://service-review-server-indol.vercel.app/reviews/${params.id}`) ,
+          loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`) ,
           element:<ReviewUpdate></ReviewUpdate>
         },
        
         {
           path: '/Details/:id',
           element: <Details></Details>,
-          loader: ({params})=> fetch(`https://service-review-server-indol.vercel.app/services/${params.id}`)
+          loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
         },
         {
           path: '/review',

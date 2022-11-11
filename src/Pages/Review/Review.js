@@ -14,7 +14,7 @@ const Review = () => {
         if(!user?.email){
             return;
         }
-        fetch(`https://service-review-server-indol.vercel.app/reviews?email=${user?.email}`, {
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('review-token')}`
             }
@@ -33,7 +33,7 @@ const Review = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this Review');
         if (proceed) {
-            fetch(`https://service-review-server-indol.vercel.app/reviews/${id}`, {
+            fetch(`http://localhost:5000/reviews/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('review-token')}`

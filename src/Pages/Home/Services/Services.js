@@ -8,7 +8,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
     
     useEffect( () =>{
-        fetch('https://service-review-server-indol.vercel.app/services')
+        fetch('http://localhost:5000/services')
         .then(res =>res.json())
         .then(data => setServices(data))
     }, []);
@@ -20,7 +20,7 @@ const Services = () => {
                 <title>services</title>
             </Helmet>
             <div className='text-center mb-4'>
-                <h2 className="text-5xl py-5 font-semibold">Our Service</h2>
+                <h2 className="text-5xl py-5 font-semibold">my service</h2>
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {

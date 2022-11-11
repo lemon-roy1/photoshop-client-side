@@ -11,7 +11,7 @@ const ReviewUpdate = () => {
     const inputeUpdate =event =>{
         event.preventDefault();
        // console.log(user);
-       fetch(`https://service-review-server-indol.vercel.app/reviews/${reviewUser._id}`, {
+       fetch(`http://localhost:5000/reviews/${reviewUser._id}`, {
             method: 'PUT',
             headers: {
                 'content-type':'application/json'
