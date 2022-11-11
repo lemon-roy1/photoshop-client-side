@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddService = () => {
     const handlePlaceServices = event =>{
@@ -16,7 +18,7 @@ const AddService = () => {
             description,
             name
         }
-        fetch('http://localhost:5000/services',{
+        fetch('https://service-review-server-indol.vercel.app/services',{
             method : 'POST',
             headers : {
                 'content-type': 'application/json'
@@ -27,8 +29,9 @@ const AddService = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+
                 if(data.acknowledged){
-                    alert('Review placed successfully')
+                    toast.success('Review placed successfully')
                     form.reset();
                     
                 }
@@ -39,6 +42,10 @@ const AddService = () => {
     }
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>add services</title>
+            </Helmet>
          <form className='flex justify-center mt-10' onSubmit={handlePlaceServices} >
          <div className='grid grid-cols-1 gap-4 w-1/2'>
          <h3 className='text-2xl font-bold'>Add Services</h3>
@@ -52,7 +59,11 @@ const AddService = () => {
          </div>
          <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="description" required></textarea>
          <input className='btn btn-outline my-5 px-5 w-20' type="submit" value="submit" />
-         </div>  
+         </div> 
+             <Toaster
+                position="top-center"
+                reverseOrder={false}
+                /> 
          </form>
         </div>
     );

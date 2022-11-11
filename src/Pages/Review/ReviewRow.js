@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
-const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
-    const { _id, serviceName,  customer, service,  images, message, email } = review;
+const ReviewRow = ({ review, handleDelete}) => {
+    const { _id, serviceName,  service,  message, } = review;
     const [reviewService, setReviewService] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service}`)
+        fetch(`https://service-review-server-indol.vercel.app/services/${service}`)
             .then(res => res.json())
             .then(data => setReviewService(data));
     }, [service])
@@ -29,18 +30,18 @@ const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
             <td className='bg-slate-600 '>
                 <div className='table-data '>{message}</div>
             </td>
-            {/* <th>
-                <button 
-                onClick={() => handleStatusUpdate(_id)}
-                className="btn btn-ghost btn-xs">{status ? status : 'pending'}</button>
-            </th> */}
             <th className='flex justify-end'>
                <Link to={`/update/${review._id}`}>
                <button className='btn btn-outline btn-success mr-2'>Update</button>
                </Link>
                 <label>
                     <button onClick={() => handleDelete(_id)} className='btn btn-outline btn-error'>Delete </button>
+                    <Toaster
+                        position="top-center"
+                        reverseOrder={false}
+                        />
                 </label>
+
             </th>
            
         </tr>

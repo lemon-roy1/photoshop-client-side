@@ -1,4 +1,5 @@
 import Main from "../../Layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import Details from "../../Pages/Details/Details";
 import Home from "../../Pages/Home/Home/Home";
 import AddService from "../../Pages/Home/Services/AddService";
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
           element: <SignUp></SignUp>
         },
         {
+          path: '/blog', 
+          element: <Blog></Blog>
+        },
+        {
           path:'/services',
           element: <Services></Services>
         },
@@ -38,14 +43,14 @@ const router = createBrowserRouter([
         },
         {
           path: '/update/:id',
-          loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`) ,
+          loader: ({params})=> fetch(`https://service-review-server-indol.vercel.app/reviews/${params.id}`) ,
           element:<ReviewUpdate></ReviewUpdate>
         },
        
         {
           path: '/Details/:id',
           element: <Details></Details>,
-          loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+          loader: ({params})=> fetch(`https://service-review-server-indol.vercel.app/services/${params.id}`)
         },
         {
           path: '/review',

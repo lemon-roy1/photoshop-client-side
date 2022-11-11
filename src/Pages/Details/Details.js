@@ -5,6 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import {useNavigate} from "react-router-dom"
 import Reviews from './Reviews';
 import {useParams} from "react-router-dom"
+import toast, { Toaster } from 'react-hot-toast';
 
 const Details = () => {
     const { _id, title, price,description, img} = useLoaderData();
@@ -27,6 +28,7 @@ const Details = () => {
 
     const handlePlaceReview = event => {
         event.preventDefault();
+        
         const form = event.target;
         const name = `${form.Name.value}`;
         const images = `${form.images.value}`;
@@ -43,7 +45,7 @@ const Details = () => {
         }
 
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://service-review-server-indol.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -55,7 +57,7 @@ const Details = () => {
             .then(data => {
                 // console.log(data)
                 if(data.acknowledged){
-                    alert('Review placed successfully')
+                    toast.success('Successfully toasted!');
                     form.reset();
                     
                 }
@@ -66,14 +68,21 @@ const Details = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch(`https://service-review-server-indol.vercel.app/reviews?email=${user?.email}`,{
+            headers: {
+              
+                authorization: `Bearer ${localStorage.getItem('review-token')}`
+            },
+        })
             .then(res => {
                 return res.json();
             })
             .then(data => {
-                setReviews(data.filter((item)=> item.service === params.id));
+              const uer = data.filter((item)=> item.service === params.id);
+             setReviews(uer)
+            console.log(data)
             })
-    }, [params])
+    }, [user?.email,params])
 
  
 
@@ -95,7 +104,12 @@ const Details = () => {
                             </div>
                             <input name="images" type="text" placeholder="img URL" className="input input-ghost w-full  input-bordered" />
                             <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Message" required></textarea>
+
                             <input className='btn btn-outline my-5 px-5 w-20' type="submit" value="submit" />
+                            <Toaster
+                                position="top-center"
+                                reverseOrder={false}
+                                />
                         </div>
                        
 
