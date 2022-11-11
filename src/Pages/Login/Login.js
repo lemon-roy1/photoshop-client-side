@@ -28,7 +28,7 @@ const Login = () => {
 
             console.log(currentUser);
 
-            // get jwt token
+            // jwt token
             fetch('http://localhost:5000/jwt', {
                 method: 'POST',
                 headers: {
@@ -40,7 +40,7 @@ const Login = () => {
                 .then(data => {
                     navigate(from, { replace: true });
                     console.log(data);
-                    // local storage is the easiest but not the best place to store jwt token
+                    
                     localStorage.setItem('review-token', data.token);
                 });
             
