@@ -11,7 +11,7 @@ const ReviewUpdate = () => {
     const inputeUpdate =event =>{
         event.preventDefault();
        // console.log(user);
-       fetch(`http://localhost:5000/reviews/${reviewUser._id}`, {
+       fetch(`https://y-swart-three.vercel.app/reviews/${reviewUser._id}`, {
             method: 'PUT',
             headers: {
                 'content-type':'application/json'

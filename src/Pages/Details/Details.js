@@ -45,7 +45,7 @@ const Details = () => {
         }
 
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://y-swart-three.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -68,7 +68,7 @@ const Details = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`,{
+        fetch(`https://y-swart-three.vercel.app/reviews?email=${user?.email}`,{
             headers: {
               
                 authorization: `Bearer ${localStorage.getItem('review-token')}`

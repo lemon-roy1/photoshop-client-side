@@ -6,7 +6,7 @@ const Utiliti = (user) => {
         email: user.email
     }
     //  jwt token
-    fetch('http://localhost:5000/jwt', {
+    fetch('https://y-swart-three.vercel.app/jwt', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
